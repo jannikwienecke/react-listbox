@@ -6,7 +6,7 @@ import {
   ListboxPopover,
 } from '@reach/listbox'
 import React from 'react'
-import Button from './Button'
+import Button, { PropsStylesButton } from './Button'
 import Headline from './Headline'
 import List, { ListItem } from './List'
 import './ListBox.css'
@@ -20,12 +20,14 @@ interface ListBoxProps {
   listItems: ListItem[]
   value: ListItem
   handleChange: (itemName: string) => void
+  stylesButton?: PropsStylesButton
 }
 
 const Listbox: React.FC<ListBoxProps> = ({
   listItems,
   value,
   handleChange,
+  stylesButton,
 }) => {
   const ref = React.useRef<HTMLUListElement>(null)
 
@@ -38,7 +40,7 @@ const Listbox: React.FC<ListBoxProps> = ({
 
     return {
       ...rect,
-      top: rect?.top ? rect.top - (heightList + 30) : 0,
+      top: rect?.top ? rect.top - heightList + 10 : 0,
       left: rect.left - width / 2 + rect.width / 2,
       width: width,
     }
@@ -46,32 +48,27 @@ const Listbox: React.FC<ListBoxProps> = ({
 
   return (
     <>
-      <div>
-        <ListboxInput
-          defaultValue="popeyes"
-          aria-labelledby={'labelId'}
-          value={value.name}
-          onChange={handleChange}
-        >
-          <ListboxButton>
-            <Button />
-          </ListboxButton>
+      <ListboxInput
+        defaultValue="popeyes"
+        aria-labelledby={'labelId'}
+        value={value.name}
+        onChange={handleChange}
+        className="list-box-input"
+      >
+        <ListboxButton>
+          <Button stylesButton={stylesButton} />
+        </ListboxButton>
 
-          <ListboxPopover position={calculateUlist}>
-            <ListboxList
-              className="list-box-list"
-              ref={ref}
-              style={{ background: '#282828', color: 'white', padding: '20px' }}
-            >
-              <ListWrapper>
-                <Headline />
-                <Logo />
-                <List listItems={listItems} />
-              </ListWrapper>
-            </ListboxList>
-          </ListboxPopover>
-        </ListboxInput>
-      </div>
+        <ListboxPopover position={calculateUlist} className="list-box-popover">
+          <ListboxList className="list-box-list" ref={ref} style={{}}>
+            <ListWrapper>
+              <Headline />
+              <Logo />
+              <List listItems={listItems} />
+            </ListWrapper>
+          </ListboxList>
+        </ListboxPopover>
+      </ListboxInput>
     </>
   )
 }

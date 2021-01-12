@@ -27,7 +27,7 @@ const App = () => {
         flexDirection: 'column',
         height: '100vh',
         alignItems: 'center',
-        background: '#232323',
+        background: '#454545',
       }}
     >
       <ListBox

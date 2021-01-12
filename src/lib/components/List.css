@@ -1,0 +1,23 @@
+.list-box-list-wrapper {
+  padding: 0;
+}
+
+.list-box-list-item {
+  padding: 10px 20px;
+  list-style: none;
+  display: flex;
+  width: 100%;
+}
+
+.list-box-list-item:hover {
+  background-color: #484848;
+  opacity: 0.5;
+}
+
+.list-box-list-logo {
+  width: 30%;
+}
+
+.list-box-list-text {
+  flex-grow: 1;
+}
