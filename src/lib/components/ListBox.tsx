@@ -44,13 +44,13 @@ const Listbox: React.FC<ListBoxProps> = ({
     if (!rect || !ref.current) return {}
 
     const heightList = ref.current?.getBoundingClientRect().height
-    const width = 300
+    const width = 350
 
     return {
       ...rect,
+      width: width,
       top: rect?.top ? rect.top - heightList : 0,
       left: rect.left - width / 2 + rect.width / 2,
-      width: width,
     }
   }
 

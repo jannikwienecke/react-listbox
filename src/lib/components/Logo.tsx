@@ -15,6 +15,7 @@ const Logo: React.FC<PropsLogo> = ({ src, styles, logoStyles }) => {
     <>
       <div className="list-box-logo-wrapper" style={styles}>
         <img
+          className="list-box-logo"
           src={src ? src : speakerLogo}
           alt="speaker"
           height={logoStyles ? logoStyles.height : '100px'}

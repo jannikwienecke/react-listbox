@@ -6,8 +6,8 @@ import { useListBox } from '../lib/hooks/useListBox'
 
 import { TEST } from '../lib/hooks/useTest'
 export const listItems: ListItem[] = [
-  { id: 1, name: 'Iphone from Jannik', isActive: true },
-  { id: 2, name: 'Macbook', isActive: false },
+  { id: '1', name: 'Iphone from Jannik', isActive: true },
+  { id: '2', name: 'Macbook', isActive: false },
 ]
 
 const App = () => {
@@ -30,7 +30,7 @@ const App = () => {
         background: '#454545',
       }}
     >
-      <ListBox value={value} handleChange={handleChange} stylesButton={}>
+      <ListBox value={value} handleChange={handleChange}>
         <Headline text={'Connect with a device'} />
         <Logo />
         <List listItems={listItems} />

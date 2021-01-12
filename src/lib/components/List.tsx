@@ -5,7 +5,7 @@ import { ListText } from './ListText'
 import './List.css'
 
 export type ListItem = {
-  id: number
+  id: string
   name: string
   isActive: boolean
 }

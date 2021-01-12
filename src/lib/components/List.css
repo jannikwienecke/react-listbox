@@ -16,7 +16,7 @@
 }
 
 .list-box-list-logo {
-  width: 40%;
+  width: 30%;
   display: flex;
   justify-content: center;
 }
@@ -34,7 +34,7 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: 2px;
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
