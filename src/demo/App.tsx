@@ -1,40 +1,38 @@
-import React from 'react'
 import ListBox from '../lib'
-import { ListItem } from '../lib/components/List'
+import Headline from '../lib/components/Headline'
+import List, { ListItem } from '../lib/components/List'
+import Logo from '../lib/components/Logo'
+import { useListBox } from '../lib/hooks/useListBox'
+
+export const listItems: ListItem[] = [
+  { id: 1, name: 'Iphone from Jannik', isActive: true },
+  { id: 2, name: 'Macbook', isActive: false },
+]
 
 const App = () => {
-  let [value, setValue] = React.useState<ListItem>({ id: 1, name: 'Pollo' })
-
-  const listItems = [
-    { id: 1, name: 'Pollo' },
-    { id: 2, name: 'Toasst' },
-  ]
-
-  const handleChange = (itemName: string) => {
-    console.log('hier...', itemName)
-
-    const selectedItem = listItems.find(item => item.name === itemName)
-    if (!selectedItem) return
-
-    setValue(selectedItem)
-  }
+  const { value, handleChange } = useListBox({
+    listItems,
+    onChange: activeItem => {
+      console.log('activeItem = ', activeItem)
+    },
+  })
 
   return (
     <div
       style={{
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'flex-end',
         flexDirection: 'column',
         height: '100vh',
         alignItems: 'center',
         background: '#454545',
       }}
     >
-      <ListBox
-        value={value}
-        handleChange={handleChange}
-        listItems={listItems}
-      />
+      <ListBox value={value} handleChange={handleChange}>
+        <Headline text={'Connect with a device'} />
+        <Logo />
+        <List listItems={listItems} />
+      </ListBox>
     </div>
   )
 }

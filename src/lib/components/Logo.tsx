@@ -1,15 +1,25 @@
-// ;<div style={{ textAlign: 'center' }}>
-//   <h3 style={{ margin: '0px', marginBottom: '10px' }}>Connect with a device</h3>
-// </div>
-
 import React from 'react'
 import speakerLogo from '../../public/speaker.svg'
+import './Logo.css'
 
-const Logo: React.FC = () => {
+interface PropsLogo {
+  src?: string
+  styles?: React.CSSProperties
+  logoStyles?: {
+    width: string
+    height: string
+  }
+}
+const Logo: React.FC<PropsLogo> = ({ src, styles, logoStyles }) => {
   return (
     <>
-      <div style={{ height: '33%', textAlign: 'center' }}>
-        <img src={speakerLogo} alt="speaker" height={'100px'} width={'100'} />
+      <div className="list-box-logo-wrapper" style={styles}>
+        <img
+          src={src ? src : speakerLogo}
+          alt="speaker"
+          height={logoStyles ? logoStyles.height : '100px'}
+          width={logoStyles ? logoStyles.width : '100px'}
+        />
       </div>
     </>
   )

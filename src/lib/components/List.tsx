@@ -1,23 +1,40 @@
 import React from 'react'
 import { ListboxOption } from '@reach/listbox'
 import './List.css'
+import deviceLogo from '../../public/device.svg'
+import { ListText } from './ListText'
 
 export type ListItem = {
   id: number
   name: string
+  isActive: boolean
 }
 interface ListProps {
   listItems: ListItem[]
+  styles?: React.CSSProperties
+  logoSrc?: string
 }
 
-const List: React.FC<ListProps> = ({ listItems }) => {
+const List: React.FC<ListProps> = ({ listItems, styles, logoSrc }) => {
   return (
     <ul className="list-box-list-wrapper">
       {listItems.map(item => {
         return (
-          <ListboxOption className="list-box-list-item" value={item.name}>
-            <div className="list-box-list-logo">{item.name}</div>
-            <div className="list-box-list-text">{item.name}</div>
+          <ListboxOption
+            key={item.id}
+            className="list-box-list-item"
+            value={item.name}
+            style={styles}
+          >
+            <div className="list-box-list-logo">
+              <img
+                alt="device"
+                src={logoSrc ? logoSrc : deviceLogo}
+                height="75px"
+                width="75px"
+              />
+            </div>
+            <ListText item={item} />
           </ListboxOption>
         )
       })}
