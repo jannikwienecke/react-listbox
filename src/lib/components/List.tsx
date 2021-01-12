@@ -1,8 +1,8 @@
 import React from 'react'
 import { ListboxOption } from '@reach/listbox'
-import './List.css'
 import deviceLogo from '../../public/device.svg'
 import { ListText } from './ListText'
+import './List.css'
 
 export type ListItem = {
   id: number
@@ -23,8 +23,8 @@ const List: React.FC<ListProps> = ({ listItems, styles, logoSrc }) => {
           <ListboxOption
             key={item.id}
             className="list-box-list-item"
-            value={item.name}
             style={styles}
+            value={item.name}
           >
             <div className="list-box-list-logo">
               <img

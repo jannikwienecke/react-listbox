@@ -1,3 +1,4 @@
+import React from 'react'
 import speakerLogo from '../../public/speaker.svg'
 import './Button.css'
 

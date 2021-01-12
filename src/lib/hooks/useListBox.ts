@@ -1,7 +1,7 @@
 import React from 'react'
 import { ListItem } from '../components/List'
 
-export interface PropsUseListBox {
+interface PropsUseListBox {
   listItems: ListItem[]
   onChange: (activeItem: ListItem) => void
 }

@@ -1,10 +1,12 @@
 // import Slider from './components/Slider'
-// import { useSlider } from './hooks/useSlider'
-
+import { useListBox } from './hooks/useListBox'
+import List from './components/List'
+import Logo from './components/Logo'
+import Headline from './components/Headline'
 import './index.css'
 
 import ListBox from './components/ListBox'
 
 export default ListBox
 
-// export { useSlider }
+export { useListBox, List, Headline, Logo }
