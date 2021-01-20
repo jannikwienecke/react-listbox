@@ -3,20 +3,56 @@ import Headline from '../lib/components/Headline'
 import List, { ListItem } from '../lib/components/List'
 import Logo from '../lib/components/Logo'
 import { useListBox } from '../lib/hooks/useListBox'
-
-import { TEST } from '../lib/hooks/useTest'
+import React from 'react'
 export const listItems: ListItem[] = [
-  { id: '1', name: 'Iphone from Jannik', isActive: true },
+  {
+    id: '1',
+    name:
+      'Iphone from Jannikphone from Jannikphone from Jannikphone from Jannikphone from Jannik',
+    isActive: true,
+  },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'HELLO WORLD', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
+  { id: '2', name: 'Macbook', isActive: false },
   { id: '2', name: 'Macbook', isActive: false },
 ]
 
 const App = () => {
-  console.log('TEST', TEST)
   const { value, handleChange } = useListBox({
     listItems,
     onChange: activeItem => {
       console.log('activeItem = ', activeItem)
     },
+  })
+
+  const activeItemRef = React.useRef<HTMLDivElement>()
+
+  React.useEffect(() => {
+    if (activeItemRef.current) {
+      activeItemRef.current.scrollIntoView()
+    }
+  })
+
+  React.useEffect(() => {
+    console.log('open...')
+
+    activeItemRef.current && activeItemRef.current.scrollIntoView()
   })
 
   return (
@@ -33,7 +69,7 @@ const App = () => {
       <ListBox value={value} handleChange={handleChange}>
         <Headline text={'Connect with a device'} />
         <Logo />
-        <List listItems={listItems} />
+        <List listItems={listItems} ref={activeItemRef} />
       </ListBox>
     </div>
   )

@@ -11,20 +11,18 @@ import { ListItem } from './List'
 import './ListBox.css'
 import ListWrapper from './ListWrapper'
 
-/**
- *
- */
-
 interface ListBoxProps {
   value: ListItem
   handleChange: (itemName: string) => void
   stylesButton?: PropsStylesButton
+  ButtonComp?: React.FC
 }
 
 const Listbox: React.FC<ListBoxProps> = ({
   value,
   handleChange,
   stylesButton,
+  ButtonComp,
   children,
 }) => {
   const [visible, setVisible] = React.useState(false)
@@ -68,7 +66,7 @@ const Listbox: React.FC<ListBoxProps> = ({
         className="list-box-input"
       >
         <ListboxButton onClick={toggleVisibility} ref={refButton}>
-          <Button stylesButton={stylesButton} />
+          <Button stylesButton={stylesButton} ButtonComp={ButtonComp} />
         </ListboxButton>
 
         <ListboxPopover position={calculateUlist} className="list-box-popover">

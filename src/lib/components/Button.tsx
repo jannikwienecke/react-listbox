@@ -8,13 +8,23 @@ export interface PropsStylesButton {
 }
 interface PropsButton {
   stylesButton?: PropsStylesButton
+  ButtonComp?: React.FC
 }
-const Button: React.FC<PropsButton> = ({ stylesButton }) => {
+const Button: React.FC<PropsButton> = ({ stylesButton, ButtonComp }) => {
   return (
     <div className="box-list-button-wrapper">
-      <button className="box-list-button" style={stylesButton}>
-        <img src={speakerLogo} alt="speaker-small" width="100%" height="100%" />
-      </button>
+      {!ButtonComp ? (
+        <button className="box-list-button" style={stylesButton}>
+          <img
+            src={speakerLogo}
+            alt="speaker-small"
+            width="100%"
+            height="100%"
+          />
+        </button>
+      ) : (
+        <ButtonComp />
+      )}
     </div>
   )
 }

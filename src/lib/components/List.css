@@ -1,5 +1,7 @@
 .list-box-list-wrapper {
   padding: 0;
+  overflow: scroll;
+  height: 250px;
 }
 
 .list-box-list-item {
@@ -22,7 +24,7 @@
 }
 
 .list-box-list-text {
-  flex-grow: 1;
+  width: 70%;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -36,6 +38,7 @@
   padding: 2px;
   font-size: 0.9rem;
   font-weight: 600;
+  overflow: auto;
 }
 
 .list-box-list-text-name {
@@ -43,6 +46,7 @@
   opacity: 0.9;
   font-size: 0.9rem;
   padding: 2px;
+  overflow: auto;
 }
 
 .list-text-is-active {
